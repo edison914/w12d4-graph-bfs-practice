@@ -24,10 +24,11 @@ function findNeighbors(node, matrix) {
 
 
 function bfsPath(matrix, startNode, endValue) {
-    let startNodeStr = startNode.toString();
+    let startNodeStr = [startNode.toString()];
     //console.log(startNodeStr)
     let path =[];
     let visited = new Set (startNodeStr);
+
     let queue = [startNode];
 
     while (queue.length) {
@@ -38,6 +39,8 @@ function bfsPath(matrix, startNode, endValue) {
             return path;
         }
         let neighbors = findNeighbors(currNode, matrix);
+        //console.log(`neighborsArr`,neighbors)
+        //console.log(`visited`, visited)
         neighbors.forEach (neighbor => {
             let neighborStr = neighbor.toString();
             if (!visited.has(neighborStr)) {
@@ -90,15 +93,15 @@ console.log(bfsPath(matrix1, [0,0], 16)); // can traverse the entire matrix
 // Note for debugging purposes: The coordinates should represent the following matrix values, in order:
 // 1 5 2 9 6 3 13 10 7 4 14 11 8 15 12 16
 
-console.log(bfsPath(matrix1, [2,2], 11)); // returns a single node if end
+// console.log(bfsPath(matrix1, [2,2], 11)); // returns a single node if end
 // value is located at start node
 // [ [ 2, 2 ] ]
 
-console.log(bfsPath(matrix1, [1,2], 8)); // can handle various start nodes
+//console.log(bfsPath(matrix1, [1,2], 8)); // can handle various start nodes
 // and end values
 // [ [ 1, 2 ], [ 0, 2 ], [ 2, 2 ], [ 1, 1 ], [ 1, 3 ] ]
 
-console.log(bfsPath(matrix1, [0,0], 17)); // can return false if end value
+//console.log(bfsPath(matrix1, [0,0], 17)); // can return false if end value
 // is not found
 // false
 
