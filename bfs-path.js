@@ -28,7 +28,6 @@ function bfsPath(matrix, startNode, endValue) {
     //console.log(startNodeStr)
     let path =[];
     let visited = new Set (startNodeStr);
-
     let queue = [startNode];
 
     while (queue.length) {
